@@ -4,7 +4,6 @@
   <p><b>Overall Model Accuracy: 92.08%</b></p>
 </div>
 
-
 <hr>
 
 <h2>1️⃣ Project Overview</h2>
@@ -35,7 +34,25 @@
 
 <hr>
 
-<h2>3️⃣ ⚙️ Installation & How to Run</h2>
+<h2>3️⃣  Dataset Download 🔗 </h2>
+<p>Due to size limitations, the dataset is not included in this repository. You can download the <b>EuroSAT</b> dataset directly from Kaggle:</p>
+
+<p align="center">
+  <a href="https://www.kaggle.com/datasets/apollo2506/eurosat-dataset?resource=download" target="_blank" style="background-color: #2ea44f; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; margin: 10px 0;">
+    Download Satellite Dataset (Kaggle)
+  </a>
+</p>
+
+<p><strong>Instructions:</strong></p>
+<ol>
+  <li>Download the dataset from the link above (requires a Kaggle account).</li>
+  <li>Extract the zip file and place the images in a folder named <code>data</code> in the project root.</li>
+  <li>Ensure the folder structure is: <code>data/class_name/image_name.jpg</code>.</li>
+</ol>
+
+<hr>
+
+<h2>4️⃣  Installation & How to Run ⚙️ </h2>
 
 <h3>Step 1: Clone the Repository</h3>
 <pre><code>
@@ -50,7 +67,7 @@ pip install -r requirements.txt
 
 <hr>
 
-<h2>4️⃣ 🚀 Usage Example</h2>
+<h2>5️⃣  Usage Example 🚀</h2>
 <p>To run the analysis, execute the <code>main.py</code> script. The program handles the full pipeline automatically.</p>
 
 <pre><code>
@@ -68,7 +85,7 @@ analyzer.visualize_umap(features, labels, dataset, indices)
 
 <hr>
 
-<h2>5️⃣ Detailed Workflow</h2>
+<h2>6️⃣ Detailed Workflow</h2>
 
 <h3>Step 1: Data Preprocessing</h3>
 <ul>
@@ -99,17 +116,15 @@ analyzer.visualize_umap(features, labels, dataset, indices)
 
 <hr>
 
-<hr>
-
-<h2>6️⃣ Results & Performance 📊</h2>
+<h2>7️⃣ Results & Performance 📊</h2>
 <p>The model achieved an impressive overall accuracy of <b>92.08%</b>. Below is a detailed breakdown of the classification performance and feature distribution.</p>
 
 <h3>A. Confusion Matrix Analysis</h3>
 <p>The confusion matrix provides a granular view of how the Linear SVM performed across the 10 land-cover classes:</p>
 <ul>
   <li><b>High Precision Classes:</b> Categories like <b>SeaLake</b> and <b>Forest</b> show near-perfect classification, likely due to their distinct spectral and textural signatures.</li>
-  <li><b>Inter-class Confusion:</b> Minor misclassifications are observed between <b>Highway</b> and <b>Residential</b> areas, which is expected given their similar urban features (pavement and structures).</li>
-  <li><b>Performance:</b> The high diagonal values confirm the robustness of <b>ResNet18</b> as a feature extractor for geospatial data.</li>
+  <li><b>Inter-class Confusion:</b> Minor misclassifications are observed between <b>Highway</b> and <b>Residential</b> areas, which is expected given their similar urban features.</li>
+  <li><b>Performance:</b> The high diagonal values confirm the robustness of <b>ResNet18</b> as a feature extractor.</li>
 </ul>
 
 <p align="center">
@@ -120,15 +135,17 @@ analyzer.visualize_umap(features, labels, dataset, indices)
 <p>By reducing the 512-dimensional ResNet features to 2D, we can observe the natural "clustering" of the dataset:</p>
 <ul>
   <li><b>Clustering Quality:</b> Distinct, well-separated clusters indicate that the deep features extracted by the CNN are highly discriminative.</li>
-  <li><b>Spatial Relationships:</b> Similar classes (like different types of vegetation) tend to group closer together in the UMAP space, while distinct classes (like Industrial vs. SeaLake) are far apart.</li>
-  <li><b>Overlaying Images:</b> The plot includes sample image thumbnails to visually verify that the model correctly groups similar land-cover types.</li>
+  <li><b>Spatial Relationships:</b> Similar classes tend to group closer together in the UMAP space.</li>
+  <li><b>Overlaying Images:</b> The plot includes sample image thumbnails to visually verify the clustering logic.</li>
 </ul>
 
 <p align="center">
   <img src="assets/umap_plot.png" width="800" alt="UMAP Visualization Plot">
 </p>
 
-<h2>7️⃣ Key Learnings & Skills</h2>
+<hr>
+
+<h2>8️⃣ Key Learnings & Skills</h2>
 <ul>
   <li><b>Deep Learning:</b> Feature extraction with pre-trained CNNs.</li>
   <li><b>Machine Learning:</b> SVM classification on high-dimensional data.</li>
@@ -138,7 +155,7 @@ analyzer.visualize_umap(features, labels, dataset, indices)
 
 <hr>
 
-<h2>8️⃣ Project Requirements</h2>
+<h2>9️⃣ Project Requirements</h2>
 <ul>
   <li>Python ≥ 3.8</li>
   <li>PyTorch & torchvision</li>
